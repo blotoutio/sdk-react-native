@@ -20,27 +20,27 @@ class RNBlotOutSDKModule: NSObject {
   }
     
     @objc
-    func initializeAnalyticsEngine(blotoutSDKKey: String, endPointUrl: String){
+    func initializeAnalyticsEngine(_ blotoutSDKKey: String, endPointUrl: String){
         
     }
     
     @objc
-    func enable(enabled: CFBoolean){
+    func enable(_ enabled: CFBoolean){
         
     }
     
     @objc
-    func capturePersonal(eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>, isPHI: CFBoolean){
+    func capturePersonal(_ eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>, isPHI: CFBoolean){
         
     }
     
     @objc
-    func capture(eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>){
+    func capture(_ eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>){
         
     }
     
     @objc
-    func mapID(mapIdData: String,withInformation:NSMapTable<AnyObject, AnyObject>){
+    func mapID(_ mapIdData: String,withInformation:NSMapTable<AnyObject, AnyObject>){
         
     }
 }
