@@ -18,4 +18,29 @@ class RNBlotOutSDKModule: NSObject {
   static func requiresMainQueueSetup() -> Bool {
     return true
   }
+    
+    @objc
+    func initializeAnalyticsEngine(blotoutSDKKey: String, endPointUrl: String){
+        
+    }
+    
+    @objc
+    func enable(enabled: CFBoolean){
+        
+    }
+    
+    @objc
+    func capturePersonal(eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>, isPHI: CFBoolean){
+        
+    }
+    
+    @objc
+    func capture(eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>){
+        
+    }
+    
+    @objc
+    func mapID(mapIdData: String,withInformation:NSMapTable<AnyObject, AnyObject>){
+        
+    }
 }
