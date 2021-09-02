@@ -5,7 +5,7 @@
 //  Copyright © 2021 BlotOut. All rights reserved.
 //
 
-import Foundation
+import Foundation;
 
 @objc(RNBlotOutSDKModule)
 class RNBlotOutSDKModule: NSObject {
@@ -30,17 +30,16 @@ class RNBlotOutSDKModule: NSObject {
     }
     
     @objc
-    func capturePersonal(_ eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>, isPHI: CFBoolean){
+    func capturePersonal(_ eventName: String, eventInfo: NSDictionary, isPHI: CFBoolean){
         
     }
     
     @objc
-    func capture(_ eventName: String, eventInfo: NSMapTable<AnyObject, AnyObject>){
-        
+    func capture(_ eventName: String, eventInfo: NSDictionary){
     }
     
     @objc
-    func mapID(_ mapIdData: String,withInformation:NSMapTable<AnyObject, AnyObject>){
+    func mapID(_ mapIdData: String, withInformation:NSDictionary){
         
     }
 }
