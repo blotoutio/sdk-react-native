@@ -1,0 +1,14 @@
+platform :ios, '12.1'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+target 'RNBlotOutSDKModule' do
+
+# Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod "Blotout-Analytics", "0.9.7"
+  # Pods for Blotout
+
+ end
+
+
+
