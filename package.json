@@ -1,11 +1,10 @@
 {
-  "name": "react-native-blotout-sdk",
-  "version": "1.0.0",
-  "description": "",
+  "name": "sdk-react-native",
+  "version": "0.10.0",
   "homepage": "https://github.com/blotoutio/sdk-react-native",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "author": "BlotOut <nitin@blotout.io>",
+  "author": "Blotout <dev@blotout.io>",
   "license": "MIT",
   "files": [
     "android",
@@ -27,9 +26,11 @@
     "!xcuserdata"
   ],
   "scripts": {
-    "compile": "rm -rf lib && tsc -p .",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "yarn compile",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:prettier": "prettier --check .",
+    "build": "rm -rf lib && tsc -p .",
+    "prepare": "npm run build",
     "test": "jest"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^27.0.6",
     "metro-react-native-babel-preset": "^0.66.2",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-native": "^0.65.0",
     "react-native-codegen": "^0.0.7",
