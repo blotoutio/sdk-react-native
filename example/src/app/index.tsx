@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import RNBlotOutSDKModule, { Counter } from 'react-native-blotout-sdk'
+import RNBlotOutSDKModule from 'react-native-blotout-sdk'
 
 const App = () => {
   useEffect(() => {
@@ -12,7 +12,7 @@ const App = () => {
     RNBlotOutSDKModule.capture('App Start', withInformation)
   })
 
-  return <Counter />
+  return null
 }
 
 export default App
