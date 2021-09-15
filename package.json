@@ -1,5 +1,5 @@
 {
-  "name": "react-native-blotout-sdk",
+  "name": "@blotoutio/sdk-react-native",
   "version": "0.10.0",
   "homepage": "https://github.com/blotoutio/sdk-react-native",
   "main": "lib/index.js",
