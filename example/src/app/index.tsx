@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 const App = () => {
   useEffect(() => {
     console.log(RNBlotOutSDKModule)
-    RNBlotOutSDKModule.initializeAnalyticsEngine(
+    RNBlotOutSDKModule.init(
       'Y4BFUDCNNZQZAUE',
       'https://sandbox.blotout.io/sdk/'
     )
@@ -12,9 +12,7 @@ const App = () => {
     withInformation.set('Platform', 'ReactNative')
     RNBlotOutSDKModule.capture('App Start', withInformation)
 
-    const PHIInfo = new Map()
-    PHIInfo.set('emailId', 'developers@blotout.io')
-    PHIInfo.set('bloodType', 'A+')
+    
     RNBlotOutSDKModule.capturePersonal(
       'custom phi event',
       { emailId: 'developers@blotout.io', bloodType: 'A+' },

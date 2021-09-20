@@ -17,7 +17,7 @@ To add the SDK to the React native project, Please add @blotoutio/sdk-react-nati
 ```React Native
 import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
 
-RNBlotOutSDKModule.initializeAnalyticsEngine(
+RNBlotOutSDKModule.init(
     'XXXXXX',
     'https://XXXX/',
   );
