@@ -1,5 +1,5 @@
 import RNBlotOutSDKModule from '@blotoutio/sdk-react-native'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 const App = () => {
   useEffect(() => {
@@ -12,7 +12,6 @@ const App = () => {
     withInformation.set('Platform', 'ReactNative')
     RNBlotOutSDKModule.capture('App Start', withInformation)
 
-    
     RNBlotOutSDKModule.capturePersonal(
       'custom phi event',
       { emailId: 'developers@blotout.io', bloodType: 'A+' },
