@@ -14,7 +14,9 @@ The `mapID` method allows you to map external services to Blotout ID.
 
 #### Example
 ```js
-    const externalID = '92j2jr230r-232j9j2342j3-jiji'
-    const provider = 'sass'
-    RNBlotOutSDKModule.mapID(externalID, provider, null)
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+
+const externalID = '92j2jr230r-232j9j2342j3-jiji'
+const provider = 'sass'
+RNBlotOutSDKModule.mapID(externalID, provider, null)
 ```

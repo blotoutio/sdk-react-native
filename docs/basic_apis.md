@@ -2,17 +2,28 @@
 
 ## init
 The `init` method is used for initializing SDK. This sets all required configurations and also sends system event `sdk_start` which allows it to record user.
-#### Input
-`init(
+
+### Input
+|                  |          |          |                                                                                                                            |
+| ---------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `token`          | `String` | Required | Application token that you can get in your dashboard.                                                                      |
+| `endpointUrl`    | `String` | Required | Url where you will be sending data.                                               
+
+
+#### Example
+```js
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+
+init(
   '3WBQ5E48ND3VTPC',
   'https://domain.com/sdk',
-);`
+);
+```
 
 ## capture
 The `capture` method is used to record developer events. This allows you to send custom events to the server when a user is interacting with the app. For example, one custom event would be when a user adds an item to a cart.
-#### Input
-`capture(eventName: String, eventInfo: {})`
 
+#### Input
 |||||
 |---|---|---|---|
 | `eventName` | `String` |  | Name of the event that you are sending |
@@ -20,7 +31,10 @@ The `capture` method is used to record developer events. This allows you to send
 
 #### Example
 ```js
-RNBlotOutSDKModule.capture('App Start', {})
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+
+RNBlotOutSDKModule.capture('Add to Cart')
+RNBlotOutSDKModule.capture('Add to Cart', { SKU: '12312321' })
 ```
 
 ## capturePersonal
@@ -29,8 +43,6 @@ PHI ( Protected Health Information) events are like PII, but carry user’s priv
 In Blotout managed or deployed Infrastructure, PII and PHI events data is encrypted using asymmetric encryption algorithms and provides access to authenticated users only.
 
 #### Input
-`-capturePersonal(eventName: String, eventInfo: {}, isPHI: Boolean)`
-
 |||||
 |---|---|---|---|
 | `eventName` | `String` |  | Name of the event that you are sending |
@@ -40,6 +52,8 @@ In Blotout managed or deployed Infrastructure, PII and PHI events data is encryp
 
 #### Example
 ```js
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+
 RNBlotOutSDKModule.capturePersonal(
   'custom phi event',
   { emailId: 'developers@blotout.io', bloodType: 'A+' },
@@ -55,6 +69,8 @@ Returns user ID as `string`.
 
 #### Example
 ```js
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+
 RNBlotOutSDKModule.getUserId((userid: any) => console.log(userid))
 ```
 
@@ -64,5 +80,7 @@ The `enable` method allows you to enable/disable the sending of analytics data. 
 
 #### Example
 ```js
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+
 RNBlotOutSDKModule.enable(true)
 ```
