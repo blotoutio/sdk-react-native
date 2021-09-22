@@ -19,7 +19,7 @@ The `capture` method is used to record developer events. This allows you to send
 | `additionalData` | `Object` | Optional | You can provide some additional data to this event. There is no limitation as this is just a key-value pair send to the server. |
 
 #### Example
-```React Native
+```js
 RNBlotOutSDKModule.capture('App Start', {})
 ```
 
@@ -39,7 +39,7 @@ In Blotout managed or deployed Infrastructure, PII and PHI events data is encryp
 
 
 #### Example
-```React Native
+```js
 RNBlotOutSDKModule.capturePersonal(
   'custom phi event',
   { emailId: 'developers@blotout.io', bloodType: 'A+' },
@@ -54,7 +54,7 @@ The `getUserId` method allows you to go get Blotout user id that is linked to al
 Returns user ID as `string`.
 
 #### Example
-```React Native
+```js
 RNBlotOutSDKModule.getUserId((userid: any) => console.log(userid))
 ```
 
@@ -63,6 +63,6 @@ RNBlotOutSDKModule.getUserId((userid: any) => console.log(userid))
 The `enable` method allows you to enable/disable the sending of analytics data. Enabled by default.
 
 #### Example
-```React Native
+```js
 RNBlotOutSDKModule.enable(true)
 ```
