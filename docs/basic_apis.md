@@ -1,11 +1,11 @@
 # API
 
-## initializeAnalyticsEngine
-The `initializeAnalyticsEngine` method is used for initializing SDK. This sets all required configurations and also sends system event `sdk_start` which allows it to record user.
+## init
+The `init` method is used for initializing SDK. This sets all required configurations and also sends system event `sdk_start` which allows it to record user.
 #### Input
 `init(
-'XXXX',
-'https://XXXX/',
+  '3WBQ5E48ND3VTPC',
+  'https://domain.com/sdk',
 );`
 
 ## capture
@@ -16,7 +16,7 @@ The `capture` method is used to record developer events. This allows you to send
 |||||
 |---|---|---|---|
 | `eventName` | `String` |  | Name of the event that you are sending |
-| `eventInfo` | `Object` | Optional | You can provide some additional data to this event. There is no limitation as this is just a key-value pair send to the server. |
+| `additionalData` | `Object` | Optional | You can provide some additional data to this event. There is no limitation as this is just a key-value pair send to the server. |
 
 #### Example
 ```React Native
@@ -41,10 +41,10 @@ In Blotout managed or deployed Infrastructure, PII and PHI events data is encryp
 #### Example
 ```React Native
 RNBlotOutSDKModule.capturePersonal(
-      'custom phi event',
-      { emailId: 'developers@blotout.io', bloodType: 'A+' },
-      true
-      )
+  'custom phi event',
+  { emailId: 'developers@blotout.io', bloodType: 'A+' },
+  true
+)
 ```
 
 ## getUserId
