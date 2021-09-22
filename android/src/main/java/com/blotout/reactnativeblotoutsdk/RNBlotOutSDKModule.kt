@@ -1,6 +1,7 @@
 package com.blotout.reactnativeblotoutsdk
 
 import android.app.Application
+import android.widget.Toast
 import com.analytics.blotout.BlotoutAnalytics
 import com.analytics.blotout.BlotoutAnalyticsConfiguration
 import com.analytics.blotout.model.MapIDData
@@ -23,7 +24,7 @@ class RNBlotOutSDKModule(private val reactContext: ReactApplicationContext) : Re
      * @param endPointUrl End point Url  as String
      */
     @ReactMethod
-    fun initializeAnalyticsEngine(blotoutSDKKey: String, endPointUrl: String) {
+    fun init(blotoutSDKKey: String, endPointUrl: String) {
         ///Initialize SDK here
         val blotoutAnalyticsConfiguration = BlotoutAnalyticsConfiguration()
         blotoutAnalyticsConfiguration.blotoutSDKKey = blotoutSDKKey
@@ -47,7 +48,7 @@ class RNBlotOutSDKModule(private val reactContext: ReactApplicationContext) : Re
      */
     @ReactMethod
     fun capture(eventName: String, eventInfo: ReadableMap?) {
-        toMap(eventInfo)?.let { BlotoutAnalytics.capture(eventName, it) }
+        eventInfo?.let {  BlotoutAnalytics.capture(eventName, it.toHashMap())}
     }
 
     /**
@@ -58,41 +59,35 @@ class RNBlotOutSDKModule(private val reactContext: ReactApplicationContext) : Re
      */
     @ReactMethod
     fun capturePersonal(eventName: String, eventInfo: ReadableMap?, isPHI: Boolean) {
-        toMap(eventInfo)?.let { BlotoutAnalytics.capturePersonal(eventName, it, isPHI) }
+        eventInfo?.let {  BlotoutAnalytics.capturePersonal(eventName, it.toHashMap(),isPHI)}
     }
 
     /**
      *
-     * @param mapIDData
+     * @param externalID
+     * @param providerID
      * @param withInformation properties in key/value pair
      */
     @ReactMethod
-    fun mapID(mapIDData: MapIDData?, withInformation: ReadableMap?) {
-        BlotoutAnalytics.mapID(mapIDData!!, toMap(withInformation))
+    fun mapID(externalID: String,providerID: String,withInformation: ReadableMap) {
+        try {
+        var mapIdData = MapIDData()
+        mapIdData.externalID = externalID
+        mapIdData.provider = providerID
+        BlotoutAnalytics.mapID(mapIdData, withInformation.toHashMap())
+        }catch (e:Exception){
+            Toast.makeText(reactContext.applicationContext,e.message!!,Toast.LENGTH_LONG).show()
+        }
     }
 
 
     @ReactMethod
-    fun getUserId(): String? {
-        return BlotoutAnalytics.getUserId()
-    }
-
-    private fun toMap(readableMap: ReadableMap?): HashMap<String, Any> {
-
-        val map = HashMap<String, Any>()
-        val iterator = readableMap!!.keySetIterator()
-        while (iterator.hasNextKey()) {
-            val key = iterator.nextKey()
-            val type = readableMap.getType(key)
-            when (type) {
-                //ReadableType.Null -> map[key] = null
-                ReadableType.Boolean -> map[key] = readableMap.getBoolean(key)
-                ReadableType.Number -> map[key] = readableMap.getDouble(key)
-                ReadableType.String -> map[key] = readableMap.getString(key)!!
-                ReadableType.Map -> map[key] = toMap(readableMap.getMap(key))
-                ReadableType.Array -> map[key] = readableMap.getArray(key)!!
-            }
+    fun getUserId(userIDCallback : Callback) {
+        try {
+            userIDCallback.invoke(BlotoutAnalytics.getUserId())
+        }catch (e:Exception){
+            Toast.makeText(reactContext.applicationContext,e.message!!,Toast.LENGTH_LONG).show()
         }
-        return map
     }
+
 }

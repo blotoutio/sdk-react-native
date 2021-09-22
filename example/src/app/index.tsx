@@ -1,15 +1,28 @@
-import React, { useEffect } from 'react'
-import RNBlotOutSDKModule from 'react-native-blotout-sdk'
+import RNBlotOutSDKModule from '@blotoutio/sdk-react-native'
+import { useEffect } from 'react'
 
 const App = () => {
   useEffect(() => {
     console.log(RNBlotOutSDKModule)
-    RNBlotOutSDKModule.initializeAnalyticsEngine(
+    RNBlotOutSDKModule.init(
       'Y4BFUDCNNZQZAUE',
       'https://sandbox.blotout.io/sdk/'
     )
-    const withInformation = new Map<'Platform', 'ReactNative'>()
+    const withInformation = new Map()
+    withInformation.set('Platform', 'ReactNative')
     RNBlotOutSDKModule.capture('App Start', withInformation)
+
+    RNBlotOutSDKModule.capturePersonal(
+      'custom phi event',
+      { emailId: 'developers@blotout.io', bloodType: 'A+' },
+      true
+    )
+
+    RNBlotOutSDKModule.getUserId((userid: any) => console.log(userid))
+
+    var externalID = '92j2jr230r-232j9j2342j3-jiji'
+    var provider = 'sass'
+    RNBlotOutSDKModule.mapID(externalID, provider, null)
   })
 
   return null

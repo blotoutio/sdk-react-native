@@ -18,6 +18,7 @@ RCT_EXTERN_METHOD(capturePersonal :
                   (NSDictionary *)eventInfo
                    isPHI: (CFBoolean *)isPHI])
 RCT_EXTERN_METHOD(mapID:
-                  (NSString *)mapIdData
+                  (NSString *)externalID
+                  provider:(NSString *)provider
                   withInformation: (NSDictionary *)withInformation)
 @end

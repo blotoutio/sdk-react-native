@@ -11,7 +11,7 @@ import BlotoutAnalyticsSDK
 @objc(RNBlotOutSDKModule)
 class RNBlotOutSDKModule: NSObject {
     @objc
-    func initializeAnalyticsEngine(_ blotoutSDKKey: String, endPointUrl: String){
+    init(_ blotoutSDKKey: String, endPointUrl: String){
         let boaSDK : BlotoutAnalytics
             boaSDK =  BlotoutAnalytics.sharedInstance()!
             let config = BlotoutAnalyticsConfiguration.init(token: blotoutSDKKey, withUrl: endPointUrl)
@@ -48,9 +48,11 @@ class RNBlotOutSDKModule: NSObject {
     }
     
     @objc
-    func mapID(_ mapIdData: BOAMapIDDataModel, withInformation:NSDictionary){
-        let boaSDK : BlotoutAnalytics
+    func mapID(_ externalID: String, provider: String,withInformation:NSDictionary){
+        /*let boaSDK : BlotoutAnalytics
+        var mapIdData =  BOMapID
+        mapIdData.
         boaSDK =  BlotoutAnalytics.sharedInstance()!
-        boaSDK.mapID(mapIdData, withInformation: <#T##[AnyHashable : Any]?#>)
+        boaSDK.mapID(mapIdData, withInformation: <#T##[AnyHashable : Any]?#>)*/
     }
 }
