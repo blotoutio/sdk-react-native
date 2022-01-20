@@ -10,10 +10,11 @@ Pod::Spec.new do |s|
 
   s.authors      = package['author']
   s.homepage     = package['homepage']
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "12.0"
 
   s.source       = { :git => "https://github.com/blotoutio/sdk-react-native.git", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m,swift}"
 
   s.dependency 'React'
+  s.dependency 'Blotout-Analytics','0.10.0'
 end
