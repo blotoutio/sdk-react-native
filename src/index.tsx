@@ -8,5 +8,6 @@ export namespace BlotoutSDK {
   export const mapId = NativeModules.RNBlotOutSDKModule.mapId
   export const transaction = NativeModules.RNBlotOutSDKModule.transaction
   export const item = NativeModules.RNBlotOutSDKModule.item
-  export const persona = NativeModules.RNBlotOutSDKModule.persona 
+  export const persona = NativeModules.RNBlotOutSDKModule.persona
+
 }
