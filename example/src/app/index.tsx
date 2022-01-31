@@ -1,4 +1,3 @@
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native'
 import BlotoutSDK from '@blotoutio/sdk-react-native'
 import { useEffect } from 'react'
 
