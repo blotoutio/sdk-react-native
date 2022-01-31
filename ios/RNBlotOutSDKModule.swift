@@ -10,22 +10,26 @@ import BlotoutAnalyticsSDK
 
 @objc(RNBlotOutSDKModule)
 class RNBlotOutSDKModule: NSObject {
+    
+    //RCT_EXPORT_METHOD(getUserProfile:(RCTResponseSenderBlock)callback)
     @objc
-  func  initializeAnalyticsEngine(_ blotoutSDKKey: String, endPointUrl: String){
+    func  initializeAnalyticsEngine(_ blotoutSDKKey: String, endPointUrl: String, callBack :@escaping (String) -> Void ){
         let boaSDK : BlotoutAnalytics
-            boaSDK =  BlotoutAnalytics.sharedInstance()!
-            let config = BlotoutAnalyticsConfiguration.init(token: blotoutSDKKey, withUrl: endPointUrl)
-            //config.launchOptions = launchOptions;
-            boaSDK.`init`(config) { (isSuccess : Bool, errorObj:Error?) in
-                if isSuccess{
-                    print("Integration Successful.")
-                    boaSDK.capture("AppLaunchedWithBOSDK", withInformation: nil)
-                    
-                }else{
-                    print("Unexpected error:.")
-                }
+        boaSDK =  BlotoutAnalytics.sharedInstance()!
+        let config = BlotoutAnalyticsConfiguration.init(token: blotoutSDKKey, withUrl: endPointUrl)
+        //config.launchOptions = launchOptions;
+        boaSDK.`init`(config) { (isSuccess : Bool, errorObj:Error?) in
+            if isSuccess{
+                print("Integration Successful.")
                 boaSDK.capture("AppLaunchedWithBOSDK", withInformation: nil)
+                callBack("")
+                
+            }else{
+                print("Unexpected error:.")
+                let errorCode = ( errorObj as! NSError).code
+                callBack(String(errorCode))
             }
+        }
     }
     
     @objc
@@ -54,11 +58,11 @@ class RNBlotOutSDKModule: NSObject {
     }
     
     @objc
-    func getUserId() -> String {
+    func getUserId(_ callBack :@escaping (String) -> Void){
         let boaSDK : BlotoutAnalytics
         boaSDK =  BlotoutAnalytics.sharedInstance()!
         let userId = boaSDK.getUserId() ?? ""
-          return userId
+          callBack(userId)
        }
     
     @objc
@@ -136,4 +140,5 @@ class RNBlotOutSDKModule: NSObject {
         boaSDK.capture(persona, withInformation: withInformation as? [AnyHashable : Any])
     }
 }
+
 

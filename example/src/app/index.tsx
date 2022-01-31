@@ -8,11 +8,20 @@ const App = () => {
     console.log('------------------')
 
     ////---------Init---------
-    BlotoutSDK.init('Y4BFUDCNNZQZAUE', 'https://sandbox.blotout.io/sdk/')
+    BlotoutSDK.init(
+      'Y4BFUDCNNZQZAUE',
+      'https://sandbox.blotout.io/sdk/',
+      (errorCode: string) => {
+        if (errorCode && errorCode.length)
+          console.log(`Failed with Error Code ${errorCode}`)
+      }
+    )
+    console.log('Success - Init')
 
     ////---------Capture---------
     const withInformation = { Platform: 'ReactNative' }
     BlotoutSDK.capture('App Start', withInformation)
+    console.log('Success - Capture')
 
     ////---------Capture Personal---------
     BlotoutSDK.capturePersonal(
@@ -20,16 +29,20 @@ const App = () => {
       { emailId: 'developers@blotout.io', bloodType: 'A+' },
       true
     )
+    console.log('Success - Capture Personal')
 
     ////---------Get User ID---------
-    //BlotoutSDK.getUserId((userid: any) => console.log(userid))
-    const userID = BlotoutSDK.getUserId()
-    console.log(userID)
+    // const userID = BlotoutSDK.getUserId()
+    // console.log("Success - User ID")
+    BlotoutSDK.getUserId((userid: string) => {
+      console.log(`Success - Get User ID -> ${userid}`)
+    })
 
     ////---------MAP ID API---------
     var externalID = '92j2jr230r-232j9j2342j3-jiji'
     var provider = 'sass'
     BlotoutSDK.mapID(externalID, provider, withInformation)
+    console.log('Success - Map ID')
 
     //---------Transaction API---------
     const transactionData = {
@@ -39,6 +52,7 @@ const App = () => {
       transaction_total: 12345.65,
     }
     BlotoutSDK.transaction(transactionData, null)
+    console.log('Success - Transaction')
 
     //---------Item API---------
     const itemData = {
@@ -49,10 +63,12 @@ const App = () => {
       item_price: '345.54',
     }
     BlotoutSDK.item(itemData, null)
+    console.log('Success - Item')
 
     ////---------Persona API---------
     const personaData = { persona_id: '12345', persona_firstname: 'XYZ CHG' }
     BlotoutSDK.persona(personaData, null)
+    console.log('Success - Persona')
   })
 
   return null

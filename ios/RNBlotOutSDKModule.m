@@ -11,7 +11,8 @@
 
 RCT_EXTERN_METHOD(initializeAnalyticsEngine:
                   (NSString *)blotoutSDKKey
-                  endPointUrl: (NSString *)endPointUrl)
+                  endPointUrl: (NSString *)endPointUrl
+                  callBack: (RCTResponseSenderBlock)callBack)
 
 RCT_EXTERN_METHOD(capture:
                   (NSString *)eventName
@@ -28,9 +29,7 @@ RCT_EXTERN_METHOD(mapID:
                   withInformation: (NSDictionary *)withInformation)
 
 RCT_EXTERN_METHOD(getUserId:
-                  (NSString *)userid
-                  (RCTPromiseResolveBlock)resolve
-                  rejecter: (RCTPromiseRejectBlock)reject)
+                  (RCTResponseSenderBlock)callBack)
 
 RCT_EXTERN_METHOD(transaction:
                   (NSDictionary *)options
