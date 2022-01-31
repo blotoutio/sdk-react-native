@@ -27,7 +27,8 @@
     "!local.properties",
     "!project.xcworkspace",
     "!xcshareddata",
-    "!xcuserdata"
+    "!xcuserdata",
+    "!example"
   ],
   "scripts": {
     "lint": "npm-run-all lint:*",
