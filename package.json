@@ -1,7 +1,8 @@
 {
   "name": "@blotoutio/sdk-react-native",
-  "version": "0.9.0",
+  "version": "0.10.2",
   "homepage": "https://github.com/blotoutio/sdk-react-native",
+  "description": "Blotout React Native Library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Blotout <dev@blotout.io>",
@@ -11,7 +12,10 @@
     "ios",
     "lib",
     "react-native-blotout-sdk.podspec",
+    "!android/.gradle",
     "!android/build",
+    "!android/app/build",
+    "!ios/Pods",
     "!.DS_Store",
     "!.gradle",
     "!.idea",
@@ -23,7 +27,8 @@
     "!local.properties",
     "!project.xcworkspace",
     "!xcshareddata",
-    "!xcuserdata"
+    "!xcuserdata",
+    "!example"
   ],
   "scripts": {
     "lint": "npm-run-all lint:*",

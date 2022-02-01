@@ -1,50 +1,74 @@
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native'
+import BlotoutSDK from '@blotoutio/sdk-react-native'
 import { useEffect } from 'react'
 
 const App = () => {
   useEffect(() => {
-    console.log(RNBlotOutSDKModule)
-    RNBlotOutSDKModule.init(
+    console.log('------------------')
+    console.log(BlotoutSDK)
+    console.log('------------------')
+
+    ////---------Init---------
+    BlotoutSDK.init(
       'Y4BFUDCNNZQZAUE',
       'https://sandbox.blotout.io/sdk/',
-      (errorCode: any) => {
-        console.log(`Created a new event with id ${errorCode}`)
+      (errorCode: string) => {
+        if (errorCode && errorCode.length)
+          console.log(`Failed with Error Code ${errorCode}`)
       }
     )
-    const withInformation = new Map()
-    withInformation.set('Platform', 'ReactNative')
-    RNBlotOutSDKModule.capture('App Start', withInformation)
+    console.log('Success - Init')
 
-    RNBlotOutSDKModule.capturePersonal(
+    ////---------Capture---------
+    const withInformation = { Platform: 'ReactNative' }
+    BlotoutSDK.capture('App Start', withInformation)
+    console.log('Success - Capture')
+
+    ////---------Capture Personal---------
+    BlotoutSDK.capturePersonal(
       'custom phi event',
       { emailId: 'developers@blotout.io', bloodType: 'A+' },
       true
     )
+    console.log('Success - Capture Personal')
+
     ////---------Get User ID---------
-    RNBlotOutSDKModule.getUserId((userid: any) => console.log(userid))
+    // const userID = BlotoutSDK.getUserId()
+    // console.log("Success - User ID")
+    BlotoutSDK.getUserId((userid: string) => {
+      console.log(`Success - Get User ID -> ${userid}`)
+    })
+
     ////---------MAP ID API---------
     var externalID = '92j2jr230r-232j9j2342j3-jiji'
     var provider = 'sass'
-    RNBlotOutSDKModule.mapID(externalID, provider, withInformation)
+    BlotoutSDK.mapID(externalID, provider, withInformation)
+    console.log('Success - Map ID')
+
     //---------Transaction API---------
-    const transactionData = new Map()
-    transactionData.set('transaction_id', '12345')
-    transactionData.set('transaction_currency', 'INR')
-    transactionData.set('transaction_payment', '123')
-    transactionData.set('transaction_total', 12345.65)
-    RNBlotOutSDKModule.transaction(transactionData, null)
+    const transactionData = {
+      transaction_id: '12345',
+      transaction_currency: 'INR',
+      transaction_payment: '123',
+      transaction_total: 12345.65,
+    }
+    BlotoutSDK.transaction(transactionData, null)
+    console.log('Success - Transaction')
+
     //---------Item API---------
-    const itemData = new Map()
-    itemData.set('item_id', '12345')
-    itemData.set('item_name', 'Toy')
-    itemData.set('item_sku', '12')
-    itemData.set('item_currency', 'INR')
-    RNBlotOutSDKModule.item(itemData, null)
+    const itemData = {
+      item_id: '12345',
+      item_name: 'Toy',
+      item_sku: '12',
+      item_currency: 'INR',
+      item_price: '345.54',
+    }
+    BlotoutSDK.item(itemData, null)
+    console.log('Success - Item')
+
     ////---------Persona API---------
-    const personaData = new Map()
-    personaData.set('persona_id', '12345')
-    personaData.set('persona_firstname', 'XYZ CHG')
-    RNBlotOutSDKModule.persona(personaData, null)
+    const personaData = { persona_id: '12345', persona_firstname: 'XYZ CHG' }
+    BlotoutSDK.persona(personaData, null)
+    console.log('Success - Persona')
   })
 
   return null
