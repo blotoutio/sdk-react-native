@@ -28,7 +28,7 @@ class RNBlotOutSDKModule(private val reactContext: ReactApplicationContext) : Re
      * @param endPointUrl End point Url  as String
      */
     @ReactMethod
-    fun init(blotoutSDKKey: String, endPointUrl: String, callBack: Callback ) {
+    fun initializeAnalyticsEngine(blotoutSDKKey: String, endPointUrl: String, callBack: Callback ) {
         ///Initialize SDK here
         val blotoutAnalyticsConfiguration = BlotoutAnalyticsConfiguration()
         blotoutAnalyticsConfiguration.blotoutSDKKey = blotoutSDKKey
