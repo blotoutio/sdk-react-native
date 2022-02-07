@@ -4,6 +4,7 @@
 The `init` method is used for initializing SDK. This sets all required configurations and also sends system event `sdk_start` which allows it to record user.
 
 ### Input
+
 |                  |                      |         |                                                       |
 | ---------------- |----------------------|---------|-------------------------------------------------------|
 | `token`          | `String`             | Required | Application token that you can get in your dashboard. |
@@ -29,6 +30,7 @@ init(
 The `capture` method is used to record developer events. This allows you to send custom events to the server when a user is interacting with the app. For example, one custom event would be when a user adds an item to a cart.
 
 #### Input
+
 |                  |          |          |                                                                                                                                 |
 |------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------------|
 | `eventName`      | `String` |          | Name of the event that you are sending                                                                                          |
@@ -48,6 +50,7 @@ PHI ( Protected Health Information) events are like PII, but carry user’s priv
 In Blotout managed or deployed Infrastructure, PII and PHI events data is encrypted using asymmetric encryption algorithms and provides access to authenticated users only.
 
 #### Input
+
 |             |           |          |                                                                                                                                 |
 |-------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------|
 | `eventName` | `String`  |          | Name of the event that you are sending                                                                                          |
