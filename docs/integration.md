@@ -11,10 +11,14 @@ To add the SDK to the React native project, Please add `@blotoutio/sdk-react-nat
  Please initialize the BlotoutAnalytics in Application class.
 
 ```js
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+import BlotoutSDK from '@blotoutio/sdk-react-native';
 
-RNBlotOutSDKModule.init(
-  '[TOKEN]',
-  '[SDK_ENDPOINT]',
-);
+BlotoutSDK.init(
+      'Y4BFUDCNNZQZAUE',
+      'https://sandbox.blotout.io/sdk/',
+      (errorCode: string) => {
+        if (errorCode && errorCode.length)
+          console.log(`Failed with Error Code ${errorCode}`)
+      }
+    )
 ```

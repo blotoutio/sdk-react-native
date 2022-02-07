@@ -6,17 +6,22 @@ The `init` method is used for initializing SDK. This sets all required configura
 ### Input
 |                  |          |          |                                                                                                                            |
 | ---------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `token`          | `String` | Required | Application token that you can get in your dashboard.                                                                      |
-| `endpointUrl`    | `String` | Required | Url where you will be sending data.                                               
+| `token`          | `String` | Required | Application token that you can get in your dashboard.  |
+| `endpointUrl`    | `String` | Required | Url where you will be sending data. |
+| `comletionHandler` | `CompletionHandler`| Return callback for sdk success and failure|                                              
 
 
 #### Example
 ```js
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+import BlotoutSDK from '@blotoutio/sdk-react-native';
 
 init(
   '3WBQ5E48ND3VTPC',
   'https://domain.com/sdk',
+  (errorCode: string) => {
+        if (errorCode && errorCode.length)
+          console.log(`Failed with Error Code ${errorCode}`)
+      }
 );
 ```
 
@@ -31,10 +36,10 @@ The `capture` method is used to record developer events. This allows you to send
 
 #### Example
 ```js
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+import BlotoutSDK from '@blotoutio/sdk-react-native';
 
-RNBlotOutSDKModule.capture('Add to Cart')
-RNBlotOutSDKModule.capture('Add to Cart', { SKU: '12312321' })
+BlotoutSDK.capture('Add to Cart')
+BlotoutSDK.capture('Add to Cart', { SKU: '12312321' })
 ```
 
 ## capturePersonal
@@ -54,7 +59,7 @@ In Blotout managed or deployed Infrastructure, PII and PHI events data is encryp
 ```js
 import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
 
-RNBlotOutSDKModule.capturePersonal(
+BlotoutSDK.capturePersonal(
   'custom phi event',
   { emailId: 'developers@blotout.io', bloodType: 'A+' },
   true
@@ -69,9 +74,9 @@ Returns user ID as `string`.
 
 #### Example
 ```js
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+import BlotoutSDK from '@blotoutio/sdk-react-native';
 
-RNBlotOutSDKModule.getUserId((userid: any) => console.log(userid))
+BlotoutSDK.getUserId((userid: any) => console.log(userid))
 ```
 
 
@@ -80,7 +85,7 @@ The `enable` method allows you to enable/disable the sending of analytics data. 
 
 #### Example
 ```js
-import RNBlotOutSDKModule from '@blotoutio/sdk-react-native';
+import BlotoutSDK from '@blotoutio/sdk-react-native';
 
-RNBlotOutSDKModule.enable(true)
+BlotoutSDK.enable(true)
 ```
