@@ -22,7 +22,7 @@ BlotoutSDK.mapID(externalID, provider, null)
 ```
 ## transaction
 
-The `transaction` method allows you to record tranasctions in your system, like purchase in ecommerce.
+The `transaction` method allows you to record transactions in your system, like purchase in ecommerce.
 
 #### Input
 
@@ -48,12 +48,12 @@ The `transaction` method allows you to record tranasctions in your system, like 
 
 ```js
 const transactionData = {
-      transaction_id: '12345',
-      transaction_currency: 'INR',
-      transaction_payment: '123',
-      transaction_total: 12345.65,
-    }
-    BlotoutSDK.transaction(transactionData, null)
+  transaction_id: '12345',
+  transaction_currency: 'INR',
+  transaction_payment: '123',
+  transaction_total: 12345.65,
+}
+BlotoutSDK.transaction(transactionData, null)
 ```
 
 
@@ -86,13 +86,13 @@ The `item` method allows you to record item in your system, like add to cart in 
 
 ```js
 const itemData = {
-      item_id: '12345',
-      item_name: 'Toy',
-      item_sku: '12',
-      item_currency: 'INR',
-      item_price: '345.54',
-    }
-    BlotoutSDK.item(itemData, null)
+  item_id: '12345',
+  item_name: 'Toy',
+  item_sku: '12',
+  item_currency: 'INR',
+  item_price: '345.54',
+}
+BlotoutSDK.item(itemData, null)
 ```
 
 
@@ -131,6 +131,5 @@ The `persona` method allows you to record persona in your system, like when user
 
 ```js
 const personaData = { persona_id: '12345', persona_firstname: 'XYZ CHG' }
-    BlotoutSDK.persona(personaData, null)
+BlotoutSDK.persona(personaData, null)
 ```
-

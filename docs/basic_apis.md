@@ -19,10 +19,11 @@ import BlotoutSDK from '@blotoutio/sdk-react-native';
 init(
   '3WBQ5E48ND3VTPC',
   'https://domain.com/sdk',
-  (errorCode: string) => {
-        if (errorCode && errorCode.length)
-          console.log(`Failed with Error Code ${errorCode}`)
-      }
+  (errorCode) => {
+    if (errorCode && errorCode.length) {
+      console.log(`Failed with Error Code ${errorCode}`)
+    }
+  }
 );
 ```
 
@@ -79,7 +80,7 @@ Returns user ID as `string`.
 ```js
 import BlotoutSDK from '@blotoutio/sdk-react-native';
 
-BlotoutSDK.getUserId((userid: any) => console.log(userid))
+BlotoutSDK.getUserId((userid) => console.log(userid))
 ```
 
 
