@@ -9,6 +9,7 @@ const BlotoutSDK = {
   transaction: NativeModules.RNBlotOutSDKModule.transaction,
   item: NativeModules.RNBlotOutSDKModule.item,
   persona: NativeModules.RNBlotOutSDKModule.persona,
+  enable: NativeModules.RNBlotOutSDKModule.enable,
 }
 
 export default BlotoutSDK
