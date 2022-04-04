@@ -43,5 +43,8 @@ RCT_EXTERN_METHOD(persona:
                   (NSDictionary *)options
                   withInformation: (NSDictionary *)withInformation)
 
+RCT_EXTERN_METHOD(enable:
+                  (BOOL)enabled)
+
 @end
 

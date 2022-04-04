@@ -139,6 +139,14 @@ class RNBlotOutSDKModule: NSObject {
 
         boaSDK.capture(persona, withInformation: withInformation as? [AnyHashable : Any])
     }
+    
+    @objc
+        func enable(_ enabled:Bool)
+        {
+            let boaSDK : BlotoutAnalytics
+            boaSDK =  BlotoutAnalytics.sharedInstance()!
+            boaSDK.enable = enabled
+        }
 }
 
 
