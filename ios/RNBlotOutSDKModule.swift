@@ -141,7 +141,7 @@ class RNBlotOutSDKModule: NSObject {
     }
     
     @objc
-        func enable(enabled:Bool)
+        func enable(_ enabled:Bool)
         {
             let boaSDK : BlotoutAnalytics
             boaSDK =  BlotoutAnalytics.sharedInstance()!

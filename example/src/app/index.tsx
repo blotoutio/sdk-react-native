@@ -69,6 +69,10 @@ const App = () => {
     const personaData = { persona_id: '12345', persona_firstname: 'XYZ CHG' }
     BlotoutSDK.persona(personaData, null)
     console.log('Success - Persona')
+    
+    ////---------Enable---------
+    BlotoutSDK.enable(true)
+    console.log('Success - Enable')    
   })
 
   return null
