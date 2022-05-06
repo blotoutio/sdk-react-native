@@ -41,5 +41,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
-    implementation "com.github.blotoutio:sdk-android:0.10.3"
+    implementation "com.github.blotoutio:sdk-android:0.10.4"
 }
