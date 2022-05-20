@@ -32,6 +32,10 @@ class RNBlotOutSDKModule: NSObject {
         }
     }
     
+    @objc class func requiresMainQueueSetup() -> Bool {
+        return false
+    }
+    
     @objc
     func capturePersonal(_ eventName: String, eventInfo: NSDictionary, isPHI: Bool){
         let boaSDK : BlotoutAnalytics
