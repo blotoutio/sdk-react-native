@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@blotoutio/sdk-react-native": "0.10.2",
+    "@blotoutio/sdk-react-native": "0.10.6-alpha.0",
     "react": "^17.0.2",
     "react-native": "^0.67.0"
   },
